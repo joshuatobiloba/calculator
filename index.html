@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+    <div class="content">
+        <div class="text-content">
+          <h2>GET PRICE QUOTES <br> INSTANTLY!</h2>
+          <p>Accurate calculations and transparent pricing information for SAV and BANNER.</p>
+          <button id="toggleFormBtn"><a href="#">Click to change calculator</a></button>
+          <p class="info"><span onclick="alert('Welcome To SAV/BANNER Calculator. To use the this site, kindly click on Click to Change calculator button in other to choose which calculator you want to use. After, fill in the form with the correct parameters of the job you want to calculate, hit the Calculate button and your result will be out.')">Learn</span> how this site works - </p>
+        </div>
+        <div class="form-container">
+          <div class="form-card" id="SAV">
+
+            <h2>SAV</h2>
+
+            <form id="stickerForm">
+              <label for="SAV">Sticker Width (inches):</label><br>
+              <input type="number" id="stickerWidth" value="#" required><br><br>
+
+              <label for="stickerHeight">Sticker Height (inches):</label><br>
+              <input type="number" id="stickerHeight" value="#" required><br><br>
+
+              <label for="stickerCount">Number of Stickers:</label><br>
+              <input type="number" id="stickerCount" value="#"><br><br>
+
+              <button type="button" onclick="calculate(SAV)">Calculate</button>
+            </form>
+            <div id="result" class="result" style="display: none;">
+                <p id="heightResult"></p>
+                <p id="priceResult"></p>
+            </div>
+          </div>
+
+          <div class="form-card hidden" id="BANNER">
+            <h2>BANNER</h2>        
+                <form id="bannerForm">
+                    <label for="BANNER">Banner Width (feets):</label><br>
+                    <input for="bannerWidth" type="number" id="bannerWidth" name="banner" required>
+                    
+                    <label class="margin" for="BANNER">Banner Width (feets):</label><br>
+                    <input for="bannerHeight" type="number" id="bannerHeight" name="banner" required>
+                
+                    <button class="margin" type="button" onclick="calculatePrice()">Calculate</button>
+                </form>
+                <div id="bannerresult"></div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    
+      <script>
+        const toggleFormBtn = document.getElementById('toggleFormBtn');
+        const SAV = document.getElementById('SAV');
+        const BANNER = document.getElementById('BANNER');
+    
+        toggleFormBtn.addEventListener('click', function() {
+          SAV.classList.toggle('hidden');
+          BANNER.classList.toggle('hidden');
+        });
+      </script>
+</body>
+</html>

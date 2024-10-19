@@ -1,0 +1,156 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(120deg, #ff7e5f, #f4b47b);
+    animation: changeGradient 10s ease-in-out infinite alternate;
+  }
+
+@keyframes changeGradient{
+    0%{
+        background: linear-gradient(120deg, #ff7e5f, #feb47b);
+    }
+    50%{
+        background: linear-gradient(120deg, #6a11cb, #2575fc);
+    }
+    100%{
+        background: linear-gradient(120deg, #ff7e5f, #feb47b);
+    }
+}
+  
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin-top: -15%;
+  }
+  
+  .text-content {
+    flex: 1;
+    padding: 20px;
+  }
+
+  .text-content a{
+    text-decoration: none;
+    color: #000000;
+  }
+
+  .text-content button{
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: -10px;
+    border: 0px;
+    border-bottom: 1px solid #000000;
+    background-color: transparent;
+    border-radius: 4px;
+    box-shadow: 0 10px 7px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-content span{
+    cursor: pointer;
+    color: #ffffff;
+  }
+
+  .text-content .info{
+    padding-top: 50px;
+    font-size: 15px;
+  }
+  
+  .form-container {
+    flex: 1;
+    position: relative; 
+    padding: 0px 30px 0px 30px ;
+  }
+  
+  .form-card {
+    position: absolute; 
+    top: 0; 
+    right: 20px; 
+    width: 300px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: opacity 0.3s ease;
+  }
+  
+  .form-card.hidden {
+    display: none; 
+  }
+  
+  .form-card h2 {
+    margin-top: 0;
+    text-align: center;
+  }
+  
+  .form-card form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-card form label {
+    margin-bottom: -15px;
+    font-size: 15px;
+  }
+  
+  .form-card form input,
+  .form-card form button {
+    padding: 10px;
+    margin-bottom: -10px;
+    border: 1px solid #000000;
+    background-color: transparent;
+    border-radius: 4px;
+    box-shadow: 0 10px 7px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-card form button {
+    background-color: #ff660000;
+    color: rgb(8, 4, 1);
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+  }
+  
+  .form-card form button:hover {
+    background-color: #b365003d;
+  }
+  
+  @media (max-width: 768px) {
+    .content{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 100px auto;
+    }
+    .form-card {
+      position: static; 
+      margin-top: 10px; 
+      margin: 0px -20px;
+    }
+  }
+
+  .result {
+    margin-top: 30px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 4px;
+  }
+
+  /* Banner */
+    #bannerForm .margin {
+        margin-top: 30px;
+    }
+
+    #bannerresult {
+    margin-top: 30px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 4px;
+}
