@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Digital Studio - Full-Stack Creative Agency</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for Inter font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#1E3A8A', // Dark Blue
+                        'secondary': '#3B82F6', // Lighter Blue
+                        'accent': '#FBBF24', // Amber/Gold
+                        'dark-bg': '#0F172A', // Dark Slate
+                        'light-text': '#F8FAFC', // Near White
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for smooth scrolling and clean base */
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Custom background gradient for the hero section */
+        #hero {
+            background-color: #0F172A;
+            background-image: radial-gradient(at 0% 0%, rgba(30, 58, 138, 0.2) 0%, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.3) 0%, transparent 50%);
+        }
+
+        /* SVG Icon Styles */
+        .icon-lg { width: 32px; height: 32px; stroke-width: 2.5; }
+
+        /* Custom spinner for loading state */
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid #FBBF24;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-light-text text-dark-bg">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-lg backdrop-blur-sm bg-opacity-95">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-bold text-primary hover:text-secondary transition duration-300">
+                MI Digital
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="#services" class="text-dark-bg hover:text-primary transition duration-300">Services</a>
+                
+                <a href="#about" class="text-dark-bg hover:text-primary transition duration-300">About Us</a>
+     
+                <a href="#contact" class="px-4 py-2 bg-primary text-light-text rounded-full shadow-md hover:bg-secondary transition duration-300">Get a Quote</a>
+            </div>
+
+            <!-- Hamburger Button (Mobile) -->
+            <button id="hamburger" class="md:hidden p-2 text-dark-bg hover:text-primary transition duration-300 focus:outline-none" aria-label="Toggle navigation menu">
+                <!-- Hamburger Icon SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-xl">
+            <div class="flex flex-col space-y-2 p-4 font-medium">
+                <a href="#services" class="block py-2 text-dark-bg hover:bg-secondary/10 rounded transition duration-300">Services</a>             
+                <a href="#about" class="block py-2 text-dark-bg hover:bg-secondary/10 rounded transition duration-300">About Us</a>
+                 
+                <a href="#contact" class="block py-2 text-primary hover:bg-secondary/10 rounded transition duration-300">Get a Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="pt-24 pb-32 text-center text-light-text overflow-hidden">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <span class="text-accent text-lg font-semibold uppercase tracking-widest">Digital Solutions Agency</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mt-4 mb-6">
+                Your Vision. <br class="md:hidden"> Our Code. <br> Exceptional Websites.
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 text-gray-300">
+                We craft beautiful, high-performing digital experiences, from custom web development and stunning design to engaging 3D animation and powerful brand identity.
+            </p>
+            <a href="#contact" class="inline-block px-10 py-4 text-lg font-bold bg-accent text-dark-bg rounded-full shadow-xl hover:bg-white hover:text-primary transition duration-500 transform hover:scale-105">
+                Let's Build Something Great
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 md:py-32 bg-light-text">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-center text-dark-bg mb-4">Our Core Capabilities</h2>
+            <p class="text-xl text-center text-gray-600 max-w-3xl mx-auto mb-16">A full spectrum of creative and technical services to launch, grow, and boost your business.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Service Card 1: Web Development -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl border-t-4 border-secondary transform hover:-translate-y-1 transition duration-500">
+                    <div class="text-secondary mb-4">
+                        <!-- Code Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-dark-bg">Website Development</h3>
+                    <p class="text-gray-600">We build fast, secure, and custom-coded websites, from e-commerce platforms to complex web applications, ensuring high performance and scalability.</p>
+                </div>
+
+                <!-- Service Card 2: Website Design -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl border-t-4 border-accent transform hover:-translate-y-1 transition duration-500">
+                    <div class="text-accent mb-4">
+                        <!-- Feather Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5l-2.5 2.5l-7 7l-2 2l-3 3l-1.5 1.5l.5.5l2-2l3-3l7-7l2.5-2.5a2.121 2.121 0 0 1 3 3l-2.5 2.5"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-dark-bg">Website Design (UI/UX)</h3>
+                    <p class="text-gray-600">Creating user-centric, visually stunning interfaces (UI) and seamless user experiences (UX) that captivate visitors and drive engagement.</p>
+                </div>
+
+                <!-- Service Card 3: Graphics Design -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl border-t-4 border-primary transform hover:-translate-y-1 transition duration-500">
+                    <div class="text-primary mb-4">
+                        <!-- Image Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-dark-bg">Graphics & Brand Identity</h3>
+                    <p class="text-gray-600">Crafting high-impact visuals, marketing materials, and cohesive brand collateral that tells your unique story and resonates with your audience.</p>
+                </div>
+
+                <!-- Service Card 4: 3D Animation -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl border-t-4 border-secondary transform hover:-translate-y-1 transition duration-500">
+                    <div class="text-secondary mb-4">
+                        <!-- Cube Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="1" width="22" height="22" rx="2" ry="2"></rect><path d="M16 3v18M8 3v18M3 8h18M3 16h18"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-dark-bg">3D Animation & Modeling</h3>
+                    <p class="text-gray-600">Bringing products and concepts to life with professional 3D animations for immersive product visualization, demos, and dynamic marketing content.</p>
+                </div>
+                
+                <!-- Service Card 5: Logo Design -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl border-t-4 border-accent transform hover:-translate-y-1 transition duration-500">
+                    <div class="text-accent mb-4">
+                        <!-- Zap/Bolt Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-dark-bg">Logo Design & Rebrand</h3>
+                    <p class="text-gray-600">We design unique, memorable, and scalable logos that form the foundational visual identity of your brand and set you apart from the competition.</p>
+                </div>
+
+                <!-- Service Card 6: Business Boosting -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl border-t-4 border-primary transform hover:-translate-y-1 transition duration-500">
+                    <div class="text-primary mb-4">
+                        <!-- Trend/Rise Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-dark-bg">Business Boosting & Strategy</h3>
+                    <p class="text-gray-600">Beyond creation, we help your digital presence succeed with performance optimization, technical SEO, and user engagement strategies for growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section & Testimonials -->
+    <section id="about" class="py-20 md:py-32 bg-light-text">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <!-- About Column -->
+                <div class="lg:col-span-1">
+                    <h2 class="text-4xl font-extrabold text-dark-bg mb-4">Who We Are</h2>
+                    <p class="text-gray-600 mb-6 text-lg">We are the "MI Digital Studio" a dedicated team of full-stack developers, creative designers, and strategic thinkers. Our passion is transforming ambitious concepts into high-performing digital realities.</p>
+                    <p class="text-gray-600 mb-6 text-lg">We don't just execute; we partner. Our process involves deep understanding of your business goals, ensuring every line of code and every pixel of design serves your bottom line.</p>
+                </div>
+
+                <!-- Testimonials Column -->
+                <div class="lg:col-span-2">
+                    <h2 class="text-4xl font-extrabold text-dark-bg mb-4">What Clients Say</h2>
+                    <div class="space-y-8">
+                        
+                        <!-- Testimonial 1 -->
+                        <div class="bg-white p-6 md:p-8 rounded-xl shadow-xl border-l-4 border-accent">
+                            <p class="text-xl italic text-gray-700 mb-4 leading-relaxed">"The MI Digital Studio team exceeded all expectations. Their unique blend of creative design and flawless development delivered a website that is both beautiful and incredibly fast. A true business booster!"</p>
+                            <p class="font-bold text-dark-bg">— Sarah K., CEO of NovaTech</p>
+                        </div>
+
+                       <!-- Testimonial 2 -->
+                        <div class="bg-white p-6 md:p-8 rounded-xl shadow-xl border-l-4 border-secondary">
+                            <p class="text-xl italic text-gray-700 mb-4 leading-relaxed">"We needed complex 3D modeling for our product launch, and their animation work was cinematic and professional. They handled the entire project seamlessly from concept to final render."</p>
+                            <p class="font-bold text-dark-bg">— Alex P., Marketing Director at Fusion Labs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 md:py-32 bg-primary">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-center text-light-text mb-4">Ready to Grow Your Business?</h2>
+            <p class="text-xl text-center text-gray-300 max-w-3xl mx-auto mb-12">Tell us about your project, and let's discuss how our design and development expertise can drive your success. You can also message us on discord: joshman0246</p>
+
+            <div class="bg-white p-8 md:p-12 rounded-xl shadow-2xl">
+                <!-- FORM ACTION MODIFIED TO BE HANDLED BY JAVASCRIPT MAILTO -->
+                <form id="contact-form" action="javascript:void(0)" method="GET">
+                    <div class="space-y-6">
+                        <!-- Name Input -->
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Your Name</label>
+                            <!-- Added 'name' attribute -->
+                            <input type="text" id="name" name="name" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-primary focus:border-primary transition duration-300">
+                        </div>
+                        
+                        <!-- Email Input -->
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Your Email</label>
+                            <!-- Added 'name' attribute -->
+                            <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-primary focus:border-primary transition duration-300">
+                        </div>
+
+                        <!-- Project Details Textarea -->
+                        <div>
+                            <div class="flex justify-between items-end mb-1">
+                                <label for="details" class="block text-sm font-medium text-gray-700">Project Details (Goals, Budget, Timeline)</label>
+                                <!-- GEMINI LLM Feature 1 Button -->
+                                <button type="button" id="summarize-btn" class="flex items-center text-xs font-semibold text-secondary hover:text-primary transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                                    <span id="summarize-text">✨ Refine Project Brief</span>
+                                    <div id="summarize-loading" class="hidden spinner ml-2 w-4 h-4 border-t-2 border-secondary"></div>
+                                </button>
+                            </div>
+                            <!-- Added 'name' attribute -->
+                            <textarea id="details" name="details" rows="5" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-primary focus:border-primary transition duration-300" placeholder="Describe your project here..."></textarea>
+<p id="details-error" class="text-sm text-red-500 mt-1 hidden">Please enter at least 50 characters of project details before refining.</p>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <div class="pt-4">
+                            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-lg font-bold text-dark-bg bg-accent hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent transition duration-300 transform hover:scale-[1.01]">
+                                Send Project Inquiry
+                            </button>
+                        </div>
+                        
+                        <!-- Success/Error Message Box (Hidden by default) -->
+                        <!-- Message box styling updated for mailto prompt -->
+                        <div id="message-box" class="hidden text-center p-4 rounded-lg font-medium border-2 border-accent bg-accent/20 text-dark-bg"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-dark-bg py-10 contact">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+             
+            <div class="mt-4 space-x-4">
+                <a href="https://instagram.com/micode563" class="hover:text-primary transition duration-300">Instagram</a>
+                <a href="https://twitter.com/josh_scrypt" class="hover:text-primary transition duration-300">Twitter</a>
+            </div>
+            <br>
+            <p>&copy; 2025 MI Digital Studio. All rights reserved.</p>
+             
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity and Gemini API -->
+    <script>
+        // --- Gemini API Configuration ---
+        const apiKey = ""; // API Key is automatically handled by the environment if empty
+        const apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=" + apiKey;
+
+        // Utility function for exponential backoff
+        async function callGeminiApi(payload, maxRetries = 3) {
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.status === 429 && i < maxRetries - 1) {
+                        const delay = Math.pow(2, i) * 1000;
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        continue; // Retry
+                    }
+
+                    if (!response.ok) {
+                        const errorBody = await response.json();
+                        console.error("API Error Details:", errorBody);
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    
+                    const result = await response.json();
+                    const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                    
+                    if (text) {
+                        return text;
+                    } else {
+                        console.error("Gemini response structure invalid or empty.");
+                        throw new Error("Invalid response from API.");
+                    }
+                } catch (error) {
+                    console.error("Error during Gemini API call attempt " + (i + 1) + ":", error);
+                    if (i === maxRetries - 1) throw error; // Re-throw on last attempt
+                }
+            }
+        }
+
+        // --- LLM Feature: Refine Project Brief (Contact Section) ---
+        const detailsTextarea = document.getElementById('details');
+        const summarizeBtn = document.getElementById('summarize-btn');
+        const summarizeText = document.getElementById('summarize-text');
+        const summarizeLoading = document.getElementById('summarize-loading');
+        const detailsError = document.getElementById('details-error');
+
+        summarizeBtn.addEventListener('click', summarizeBrief);
+
+        async function summarizeBrief() {
+            const userPrompt = detailsTextarea.value.trim();
+
+            if (userPrompt.length < 50) {
+                detailsError.textContent = "Please enter at least 50 characters of project details before refining.";
+                detailsError.classList.remove('hidden');
+                setTimeout(() => detailsError.classList.add('hidden'), 5000);
+                return;
+            }
+
+            // Show loading state
+            summarizeBtn.disabled = true;
+            summarizeText.textContent = 'Refining...';
+            summarizeLoading.classList.remove('hidden');
+            detailsError.classList.add('hidden');
+
+            const systemPrompt = `Act as a world-class Project Management Consultant. Take the following client request and turn it into a concise, actionable, and professionally formatted 3-point summary (using a numbered list, NOT markdown lists). The three points MUST cover: 1) Core Project Goal (What is the ultimate objective?), 2) Service Scope (Which services from Web Dev, UI/UX Design, Graphics, 3D Animation, Logo Design, Business Boosting are most relevant?), and 3) Next Steps (What is the immediate action needed?). The entire response should be under 150 words.`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userPrompt }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+            };
+
+            try {
+                const refinedBrief = await callGeminiApi(payload);
+                
+                if (refinedBrief) {
+                    detailsTextarea.value = refinedBrief;
+                } else {
+                     detailsError.textContent = "Error: Could not generate a summary. Please try again.";
+                     detailsError.classList.remove('hidden');
+                }
+
+            } catch (error) {
+                console.error("Failed to summarize brief:", error);
+                detailsError.textContent = "Network error or API limit reached. Please try again in a moment.";
+                detailsError.classList.remove('hidden');
+            } finally {
+                // Reset loading state
+                summarizeBtn.disabled = false;
+                summarizeText.textContent = '✨ Refine Project Brief';
+                summarizeLoading.classList.add('hidden');
+            }
+        }
+
+        // --- Contact Form Handling (MAILTO IMPLEMENTATION) ---
+        const RECIPIENT_EMAIL = "oluwatobilobajoshua906@gmail.com";
+        
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const messageBox = document.getElementById('message-box');
+
+            // 1. Get user input
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const details = document.getElementById('details').value;
+
+            // 2. Construct email content
+            const subject = `New Project Inquiry: ${name} (${email})`;
+            const bodyContent = `Client Name: ${name}\nClient Email: ${email}\n\nProject Details:\n${details}\n\n--- Sent from Elite Digital Studio contact form.`;
+
+            // 3. Encode and construct mailto link
+            const mailtoLink = `mailto:${RECIPIENT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyContent)}`;
+
+            // 4. Update message box for user guidance
+            messageBox.textContent = 'Opening your email client... Please check your email client (like Gmail) to complete and send the message!';
+            messageBox.classList.remove('hidden');
+            
+            // 5. Trigger the mailto link
+            window.location.href = mailtoLink;
+            
+            // Hide message after a delay
+            setTimeout(() => {
+                messageBox.classList.add('hidden');
+            }, 8000);
+        });
+
+        // --- Existing Interactivity JavaScript ---
+        
+        // 1. Mobile Menu Toggle
+        document.getElementById('hamburger').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = this.querySelector('svg');
+            menu.classList.toggle('hidden');
+            
+            // Toggle hamburger/close icon (optional, but good UX)
+            if (menu.classList.contains('hidden')) {
+                // Show hamburger
+                icon.innerHTML = '<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
+            } else {
+                // Show close (X) icon
+                icon.innerHTML = '<line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>';
+            }
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+                // Reset icon to hamburger
+                const icon = document.getElementById('hamburger').querySelector('svg');
+                icon.innerHTML = '<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
+            });
+        });
+    </script>
+</body>
+</html>
